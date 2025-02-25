@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 
-const path = require('path')
+
 
 // managing sessions
 const session = require('express-session');
@@ -21,6 +21,8 @@ const MongoStore = require("connect-mongo")
 
 // DECLARE PORT VARIABLE
 const port = process.env.PORT ? process.env.PORT : '3000';
+
+const path = require('path');
 
 // IMPORT ROUTER TO CONTROLLERS
 const authController = require('./controllers/auth.js');
@@ -36,7 +38,7 @@ mongoose.connection.on('connected', () => {
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -45,9 +47,9 @@ app.use(
         secret: process.env.SESSION_SECRET,
         resave: false,
         saveUninitialized: true,
-        store: MongoStore.create({
-            mongoUrl: process.env.MONGODB_URI,
-        }),
+        // store: MongoStore.create({
+        //     mongoUrl: process.env.MONGODB_URI,
+        // }),
     })
 );
 

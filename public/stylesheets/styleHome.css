@@ -131,13 +131,14 @@ body {
     transition: .3sec
 }
 
-.sign-up-form .form-title {
-    margin-block: 40px, 20px;
-}
+/* .sign-up-form .form-title {
+    margin-block: 10px, 20px;
+} */
 
 .form-title {
     text-align: center;
-    margin: 20px 0;
+    margin-top: 30px;
+    margin-bottom: 20px;
     color: white;
     font-size: 20px;
     font-weight: 600;
@@ -227,6 +228,8 @@ body {
     font-family: "Raleway", serif;
     font-weight: 200;
     font-style: normal;
+
+    margin: 7px 0;
 
     font-size: 13px;
 }

@@ -20,16 +20,15 @@ const User = require('../models/user.js');
 
 // ===== SIGN OUT =====
 router.get('/sign-out', (req, res) => {
-    req.session.destroy(() => {
-        res.redirect('/')
-    });
+    req.session.destroy();
+    res.redirect('/')
 });
 // =================================  SIGN UP POST REQUEST ==========================
 router.post('/sign-up', async (req, res) => {
     try {
         // enforcing unique usernames
         const userInDatabase = await User.findOne({ username: req.body.username });
-        const useremailDatabase = await User.findOne({ email: req. body.email })
+        const useremailDatabase = await User.findOne({ email: req. body.email });
         if (userInDatabase) {
             req.flash('message', 'Username already taken.');
             // return res.send('Username already taken.');
@@ -54,9 +53,19 @@ router.post('/sign-up', async (req, res) => {
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
     req.body.password = hashedPassword;
 
-    // create user
-    await User.create(req.body);
-    res.redirect('/');
+    // create user & automatically sign-in
+    const user = await User.create({
+        username: req.body.username,
+        email: req.body.email,
+        password: hashedPassword,
+    });
+
+    req.session.user = {
+        username: user.username,
+        _id: user._id
+    };
+
+    res.redirect(`/`);
 
     } catch (error) {
         console.log(error);
@@ -95,11 +104,11 @@ router.post('/sign-in', async (req, res) => {
         _id: userInDatabase._id
     };
 
-    req.session.save(() => {
-        res.redirect('/')
-    })
+    // req.session.save(() => {
+    //     res.redirect('/')
+    // })
 
-    // res.redirect('/');
+    res.redirect('/');
 
     } catch (error) {
         console.log(error);
