@@ -69,7 +69,8 @@ Inspiration: Vibrant colors and playful illustrations that bring energy and exci
 * Foster community engagement by displaying updates on other users' reading activity.
 
 ## <a name="deployment"></a>Deployed Link
-[Github Pages](https://ashleylaisure.github.io/Minesweeper/)
+* You can view the app
+[Heroku](https://thebooknook-d5125933b6c8.herokuapp.com/)
 
 * You can view the repository:
 [Github.com](https://github.com/ashleylaisure/_thebooknook.git)
