@@ -144,10 +144,6 @@ body {
     gap: 1rem;
 }
 
-.top button {
-    display: none;
-}
-
 .top .profile {
     display: flex;
     gap: 1rem;
@@ -452,58 +448,24 @@ main .books .buttons button:hover {
 /* ============== Meida Queries ============== */
 
 @media (max-width: 768px) {
-    .top button {
-        display: inline-block;
-        background: none;
-        cursor: pointer;
-        color: var(--color-dark);
-        position: absolute;
-        left: 1rem;
-        height: 1rem;
-    }
-
     .containter {
-        width: 100%;
-        grid-template-columns: 1fr;
+        display: grid;
+        width: 98%;
+        margin: 0 auto;
+        margin-top: 4.5rem;
+        gap: 1rem;
+        grid-template-columns: 5rem auto;
+    
     }
-
     /* nav */
-    aside {
-        position: fixed;
-        left: -100%;
-        background: var(--color-white);
-        width: 10rem;
-        z-index: 3;
-        box-shadow: 1rem 3rem 4rem var(--color-light);
-        height: 100vh;
-        padding-right: var(--card-padding);
+
+    aside h3{
         display: none;
     }
 
-    .showMenu {
-        display: block;
-        animation: showMenu 400ms ease forwards
-    }
-
-    @keyframes showMenu {
-        to {
-            left: 0;
-        }
-    }
-
-    .hideMenu {
-        animation: hideMenu 400ms ease forwards;
-    }
-
-    @keyframes showMenu {
-        to {
-            left: -100%;
-        }
-    }
-
-    aside .sidebar a {
-        width: 100%;
-        height: 3.4rem;
+    aside .sidebar a:hover {
+        color: var(--color-primary);
+        margin-left: 3rem;
     }
 
     /* main */

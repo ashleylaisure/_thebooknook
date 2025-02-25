@@ -28,7 +28,7 @@ router.post('/sign-up', async (req, res) => {
     try {
         // enforcing unique usernames
         const userInDatabase = await User.findOne({ username: req.body.username });
-        const useremailDatabase = await User.findOne({ email: req. body.email });
+        const useremailDatabase = await User.findOne({ email: req.body.email });
         if (userInDatabase) {
             req.flash('message', 'Username already taken.');
             // return res.send('Username already taken.');
