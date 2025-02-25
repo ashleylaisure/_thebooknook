@@ -10,7 +10,7 @@
   <!-- BOXICONS -->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <!-- JAVASCRIPT -->
-  <script defer src="/js/app.js"></script>
+  <script defer src="/js/apphome.js"></script>
 
   <title>The BookNook</title>
 </head>
@@ -48,7 +48,7 @@
             <h1>Sign in</h1>
           </div>
 
-          <% if (message.length > 0) { %>
+          <% if (message) { %>
             <div class="alert alert-error"><%= message %></div>
           <% } %>
 
@@ -59,14 +59,14 @@
               <div class="input-box">
                 <i class='bx bx-user icon'></i>
                 <input type="text" name="username" class="input-field" placeholder= ' ' id="username" required />
-                <label for="username" class="placeholder">username</label>
+                <label for="username" class="label">username</label>
                 
               </div>
 
               <div class="input-box">
                 <!-- <i class='bx bx-lock-alt icon'></i> -->
                 <input type="password" name="password" class="input-field" placeholder= ' ' id="password" required />
-                <label for="password" class="placeholder" >password</label>
+                <label for="password" class="label" >password</label>
                 
               </div>
 
@@ -101,25 +101,25 @@
               <div class="input-box">
                 <i class='bx bx-user icon'></i>
                 <input type="text" name="username" class="input-field"  placeholder= ' ' id="username" required />
-                <label for="username" class="placeholder">username</label>
+                <label for="username" class="label">username</label>
               </div>
 
               <div class="input-box">
                 <i class='bx bx-envelope icon'></i>
                 <input type="email" name="email" class="input-field"  placeholder= ' ' id="email" required />
-                <label for="email" class="placeholder">email</label>
+                <label for="email" class="label">email</label>
               </div>
 
               <div class="input-box">
                 <!-- <i class='bx bx-lock-alt icon'></i> -->
                 <input type="password" name="password" class="input-field" placeholder= ' ' id="password" required />
-                <label for="password" class="placeholder">password</label>
+                <label for="password" class="label">password</label>
               </div>
 
               <div class="input-box">
                 <!-- <i class='bx bx-lock-alt icon'></i> -->
                 <input type="password" name="confirmPassword" class="input-field"  placeholder= ' ' id="confirmPassword" required />
-                <label for="confirmPassword" class="placeholder">confirm password</label>
+                <label for="confirmPassword" class="label">confirm password</label>
               </div>
 
               <div class="input-box">

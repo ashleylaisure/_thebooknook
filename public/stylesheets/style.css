@@ -453,8 +453,8 @@ main .books .buttons button:hover {
 
 @media (max-width: 768px) {
     .top button {
-        display: block;
-        background: transparent;
+        display: inline-block;
+        background: none;
         cursor: pointer;
         color: var(--color-dark);
         position: absolute;

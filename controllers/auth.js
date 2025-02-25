@@ -10,20 +10,20 @@ const User = require('../models/user.js');
 
 // ===== SIGN UP =====
 // router.get('/sign-up', (req, res) => {
-//   res.render('auth/sign-up.ejs');
+//     res.render('auth/sign-up.ejs');
 // });
 
 // ===== SIGN IN =====
 // router.get('/sign-in', (req, res) => {
-//   res.render('auth/sign-in.ejs');
+//     res.render('auth/sign-in.ejs');
 // });
 
 // ===== SIGN OUT =====
 router.get('/sign-out', (req, res) => {
-    req.session.destroy();
-    res.redirect('/');
+    req.session.destroy(() => {
+        res.redirect('/')
+    });
 });
-
 // =================================  SIGN UP POST REQUEST ==========================
 router.post('/sign-up', async (req, res) => {
     try {
@@ -56,7 +56,7 @@ router.post('/sign-up', async (req, res) => {
 
     // create user
     await User.create(req.body);
-    res.redirect('/auth/sign-in');
+    res.redirect('/');
 
     } catch (error) {
         console.log(error);
@@ -82,6 +82,7 @@ router.post('/sign-in', async (req, res) => {
         req.body.password,
         userInDatabase.password
     );
+
     if (!validPassword) {
         req.flash('message', 'Password does not match. Please try again');
         // return res.send('Login failed. Please try again.');
@@ -94,7 +95,11 @@ router.post('/sign-in', async (req, res) => {
         _id: userInDatabase._id
     };
 
-    res.redirect('/');
+    req.session.save(() => {
+        res.redirect('/')
+    })
+
+    // res.redirect('/');
 
     } catch (error) {
         console.log(error);

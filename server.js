@@ -36,7 +36,7 @@ mongoose.connection.on('connected', () => {
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -45,13 +45,16 @@ app.use(
         secret: process.env.SESSION_SECRET,
         resave: false,
         saveUninitialized: true,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGODB_URI,
+        }),
     })
 );
 
 app.use(flash());
 
 // =================================  ROUTES  ==========================
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     if (req.session.user) {
     res.redirect(`/users/${req.session.user._id}/books`);
     } else {
