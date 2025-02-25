@@ -59,8 +59,14 @@ Inspiration: Vibrant colors and playful illustrations that bring energy and exci
 
 ## <a name="nextsteps"></a>Project Next Steps
 #### List of Future Features
-* Allow the user to select the difficulty level - changing the board size and amount of mines 
-* Create a leaderboard to record the time the game was completed
+* Integrate an API to enable users to search a book database and automatically import book details.
+* Sync with Goodreads to allow users to import their book lists.
+* Expand book tracking features to include review sections for pacing, themes/tropes, and tone/mood.
+* Implement a daily reading tracker to log pages read or time spent reading.
+* Enable users to categorize books into custom reading lists.
+* Track book acquisition details, including a spending log.
+* Introduce an analytics section for reading habits and trends.
+* Foster community engagement by displaying updates on other users' reading activity.
 
 ## <a name="deployment"></a>Deployed Link
 [Github Pages](https://ashleylaisure.github.io/Minesweeper/)
