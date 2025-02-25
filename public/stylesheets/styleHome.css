@@ -1,0 +1,248 @@
+/* ====== FONT ====== */
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ====== BASE ====== */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', serif;
+}
+
+/* ====== BODY ====== */
+body {
+    background: url('/assets/robert-katzki-jbtfM0XBeRc-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100hv;
+    padding: 20px 20px;
+}
+
+/* ====== FORM ====== */
+
+.home-form{
+    display: flex;
+    width: 1000px;
+    height: 600px;
+    border: 3px solid rgba(255, 255, 255, .1);
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+}
+
+/* ====== FIRST COLUMN ====== */
+
+.home-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 55%;
+    background: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(30px);
+    border-radius: 3% 20% 30% 3%;
+}
+
+.brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.app-name {
+    color: #FCCE03;
+    margin-right: 10px;
+    font-family: "Lily Script One", serif;
+}
+
+.logo{
+    width: 35px;
+    margin-bottom: 12px;
+}
+
+.cover-image {
+    position: relative;
+    width: 400px; 
+}
+
+.featured-words {
+    text-align: center;
+    color: white;
+    width: 225px;
+}
+
+/* ====== SECOND COLUMN ====== */
+
+.home-right {
+    position: relative;
+    width: 45%;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.btn-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    font-weight: 500;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, .2);
+    color: white;
+    box-shadow: 0 5px 10px rgba(96, 171, 171, 0.5);
+    cursor: pointer;
+    transition: 2s;
+}
+
+.sign-in-form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 4vw;
+    transition: .3sec
+}
+
+.sign-up-form {
+    position: absolute;
+    left: -50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 4vw;
+    transition: .3sec
+}
+
+.sign-up-form .form-title {
+    margin-block: 40px, 20px;
+}
+
+.form-title {
+    text-align: center;
+    margin: 20px 0;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.form-inputs {
+    width: 100%
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-field {
+    width: 100%;
+    height: 45px;
+    padding: 0 20px;
+    margin: 10px 0;
+    color: white;
+    background: rgba(255, 255, 255, .2);
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(96, 171, 171, 0.5);;
+}
+
+.label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    transition: top .3s, font-size .3s;
+
+    color: white;
+    font-size: 15px;
+}
+
+.input-field:focus + .label {
+    top : -2px;
+    font-size: 13px;
+}
+
+.input-field:not(:placeholder-shown).input-field:not(:focus) + .label {
+    top : -2px;
+    font-size: 13px;
+}
+
+.input-box .icon{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.input-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 45px;
+    padding: 0, 15px;
+    margin: 10px 0;
+    color: white;
+    background: #3E3377;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5 15px rgba(96, 171, 171, 0.5);;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.input-submit:hover {
+    gap: 20px;
+}
+
+/* ====== ERROR ====== */
+
+.alert{
+    color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Raleway", serif;
+    font-weight: 200;
+    font-style: normal;
+
+    font-size: 13px;
+}
+
+/* ====== Media Queries ====== */
+@media (max-width: 768px) {
+    .home-form {
+        width: 100%;
+    }
+
+    .home-left {
+        display: none;
+    }
+
+    .home-right {
+        width: 100%;
+    }
+    
+}

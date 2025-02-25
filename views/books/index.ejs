@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- JAVASCRIPT -->
+    <script defer src="/js/app.js"></script>
+
+    <title>The BookNook</title>
+</head>
+
+<body>
+    <%- include('../partials/_topnavbar.ejs') %>
+
+    <div class="containter">
+
+        <%- include('../partials/_asidenavbar.ejs') %>
+
+        <!-- ------------------- INDEX VIEW --------------------- -->
+        <main>
+            <div class="books">
+
+                <h2>Your BookNook</h2>
+                
+                <% if (books.length >= 1) { %>
+
+                    <% books.sort((a, b) => ( new Date(b.finished) - new Date(a.finished))); %>
+
+                    <table class="not-finished">
+                        <!-- <caption><h3>TBR Shelf</h3><p></p></caption> -->
+                        <thead>
+                            <tr>
+                                <th class="photo"></th>
+                                <th>Title</th>
+                                <th class="author">Author</th>
+                                <th class="rating">Rating</th>
+                                <th class="details"></th>
+                            </tr>
+                        </thead>
+
+                        <% books.forEach((book) => { %>
+                        
+                            <% if (!book.finished) { %>
+
+                                <tbody>
+                                    <tr class="<%= book.status === 'reading' ? 'current-read' : '' %>">
+                                        <td class="photo">
+                                            <%if (book.photo) { %>
+                                                <img src=<%= book.photo %> alt="inserted book cover">
+                                            <% } else { %>
+                                                <img src="/assets/24011467_6855439.jpg" alt="book illustration" >
+                                            <% } %>
+                                        </td>
+                                        <td><%= book.title %></td>
+                                        <td class="author"><%=book.author %></td>
+                                        <td class="rating">
+                                            <% if (book.rating === '1') { %>
+                                                <h3>⭐</h3>
+                                            <% } else if (book.rating === '2') { %>
+                                                <h3>⭐⭐</h3> 
+                                            <% } else if (book.rating === '3') { %>
+                                                <h3>⭐⭐⭐</h3> 
+                                            <% } else if (book.rating === '4') { %>
+                                                <h3>⭐⭐⭐⭐</h3> 
+                                            <% } else if (book.rating === '5') { %>
+                                                <h3>⭐⭐⭐⭐⭐</h3> 
+                                            <% } else { %>
+                                                <h3></h3>
+                                            <% } %>
+                                        </td>
+                                        <td class="primary">
+                                            <a href="/users/<%= user._id %>/books/<%= book._id %>">Details</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            <% } else { %>
+                                
+                            <% } %>
+                        <% }); %>
+                    </table>
+                    
+                    <table class="finished">
+                        <caption><h3>Books Read</h3><p>Sorted by finished date (decending)</p></caption>
+                        <thead>
+                            <tr>
+                                <th class="photo"></th>
+                                <th>Title</th>
+                                <th class="author">Author</th>
+                                <th class="rating">Rating</th>
+                                <th class="details"></th>
+                            </tr>
+                        </thead>
+
+                        <% books.forEach((book) => { %>
+                        
+                            <% if (book.finished) { %>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="photo">
+                                            <%if (book.photo) { %>
+                                                <img src=<%= book.photo %> alt="inserted book cover">
+                                            <% } else { %>
+                                                <img src="/assets/24011467_6855439.jpg" alt="book illustration" >
+                                            <% } %>
+                                        </td>
+                                        <td><%= book.title %></td>
+                                        <td class="author"><%=book.author %></td>
+                                        <td class="rating">
+                                            <% if (book.rating === '1') { %>
+                                                <h3>⭐</h3>
+                                            <% } else if (book.rating === '2') { %>
+                                                <h3>⭐⭐</h3> 
+                                            <% } else if (book.rating === '3') { %>
+                                                <h3>⭐⭐⭐</h3> 
+                                            <% } else if (book.rating === '4') { %>
+                                                <h3>⭐⭐⭐⭐</h3> 
+                                            <% } else if (book.rating === '5') { %>
+                                                <h3>⭐⭐⭐⭐⭐</h3> 
+                                            <% } else { %>
+                                                <h3></h3>
+                                            <% } %>
+                                        </td>
+                                        <td class="primary">
+                                            <a href="/users/<%= user._id %>/books/<%= book._id %>">Details</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            <% } else { %>
+                            <% } %>
+                        <% }); %>
+                    </table>
+                        
+                <% } else { %>            
+                    <h2> You have no books in your booknook</h2>
+                <% } %>
+                <!-- <a href="#">Show All</a> -->
+
+            </div>
+        </main>
+    
+    </div>
+    
+</body>
+</html>

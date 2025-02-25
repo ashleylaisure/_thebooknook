@@ -1,0 +1,527 @@
+/* ====== FONT ====== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ====== ROOT VARIABLES ====== */
+
+:ROOT {
+    --color-primary: #644996;
+    --color-danger: #17324A;
+    --color-success: #60ABAB;
+    --color-warning: #FCCE03;
+    --color-white: #fff;
+    --color-hot: rgb(158, 5, 18);
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #3e3377;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #0D5159;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --color-background-2: #f6f6f9eb;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+a {
+    color: var(--color-dark)
+}
+
+img {
+    display: block;
+    height: 100%;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.text-muted {
+    color: var(--color-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+p {
+    color: var(--color-dark-variant);
+    font-size: 0.77rem;
+    font-weight: 700;
+}
+
+b {
+    color: var(--color-dark)
+}
+
+.primary {
+    color: var(--color-primary)
+}
+
+.danger {
+    color: var(--color-danger)
+}
+
+.success {
+    color: var(--color-success)
+}
+.warning {
+    color: var(--color-warning)
+}
+
+.red {
+    color: var(--color-hot)
+}
+
+/* ====== BASE ====== */
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+/* ====== BODY ====== */
+
+body {
+    min-width: 100hv;
+    height: 100vh;
+    font-family: 'Poppins', serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
+    user-select: none;
+}
+
+/* ====== TOP NAV ====== */
+.top{
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    padding: 0 0.8rem;
+    height: 4.5rem;
+    background: var(--color-white);
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+    box-shadow: 0 1rem 1rem var(--color-light);
+
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.top button {
+    display: none;
+}
+
+.top .profile {
+    display: flex;
+    gap: 1rem;
+    text-align: right;
+}
+
+.profile-photo {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.top .logo {
+    display: flex;
+    gap: 0.6rem;
+    position: absolute;
+    left: 2.5rem;
+    font-family: "Lily Script One", serif;
+    color: var(--color-primary)
+}
+
+.top .logo img {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* ====== CONTAINTER ====== */
+
+.containter {
+    display: grid;
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 4.5rem;
+    gap: 1.5rem;
+    grid-template-columns: 10rem auto;
+
+}
+
+/* ====== ASIDE NAVIGATION ====== */
+
+aside {
+    height: 100hv;
+}
+
+aside .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    position: relative;
+    margin-top: 1rem;
+}
+
+aside h3{
+    font-weight: 500;
+}
+
+aside .sidebar a{
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 1rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+
+aside .sidebar a:hover {
+    color: var(--color-primary);
+    margin-left: 3rem;
+}
+
+/* =============== INDEX VIEW  =============== */
+
+main {
+    margin-top: 1.5rem;
+}
+
+main .books h2 {
+    margin-bottom: 0.8rem;
+}
+
+main .books table {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 1.5rem;
+    table-layout: auto;
+}
+
+main .books table:hover {
+    box-shadow: none;
+}
+
+main table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+main table tbody td.photo {
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main table tbody tr.current-read {
+    background: var(--color-light);
+}
+
+
+main table tbody tr:last-child td {
+    border: none;
+}
+
+/* =============== NEW & EDIT VIEW  =============== */
+
+main .books .new-book{
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 0.7rem;
+}
+
+main .books .new-book:hover {
+    box-shadow: none;
+}
+
+main .books .new-book input, select, textarea {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-3);
+    border: 1px solid var(--color-info-light);
+    padding: 1rem;
+    width: 100%;
+    font-size: .8rem;
+}
+
+main .books .new-book .add {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
+    gap: 1rem;
+}
+
+
+main .books .new-book .add .item{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+main .books .new-book-section {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 0.7rem;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    gap: 1rem;
+}
+
+main .books .new-book-section .item {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+main .books .new-book-section:hover {
+    box-shadow: none;
+}
+
+
+main .books .add-new-book {
+    background: transparent;
+    width: 25%;
+    border: 2px dashed var(--color-primary);
+    border-radius: var(--card-border-radius);
+    padding: var(--padding-1);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+
+    display: flex;
+    margin: 1rem auto;
+
+    justify-content: center;
+    align-content: center;
+}
+
+main .books .add-new-book button{
+    cursor: pointer;
+}
+
+main .books .add-new-book:hover {
+    box-shadow: none;
+}
+
+/* =============== SHOW VIEW  =============== */
+main .show {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
+    gap: 1rem;
+}
+
+main .show .books {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 2fr, 1fr, 1fr, 1fr;
+    align-content: center;
+    gap: 1rem;
+}
+
+main .show .books .row1, .row2, .row3 {
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--padding-1);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+main .show .books .row1:hover,
+main .show .books .row2:hover,
+main .show .books .row3:hover {
+    box-shadow: none;
+}
+
+.book-photo {
+    height: 80vh;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.book-photo img {
+    max-height: 100%;
+}
+
+main .books .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+main .books .buttons button {
+    background: transparent;
+    border: 2px dashed var(--color-primary);
+    border-radius: var(--card-border-radius);
+    padding: var(--padding-1);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+main .books .buttons button{
+    cursor: pointer;
+}
+
+main .books .buttons button:hover {
+    box-shadow: none;
+}
+
+
+/* ============== Meida Queries ============== */
+
+@media (max-width: 768px) {
+    .top button {
+        display: block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+        height: 1rem;
+    }
+
+    .containter {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    /* nav */
+    aside {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 10rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        display: none;
+    }
+
+    .showMenu {
+        display: block;
+        animation: showMenu 400ms ease forwards
+    }
+
+    @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    }
+
+    .hideMenu {
+        animation: hideMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu {
+        to {
+            left: -100%;
+        }
+    }
+
+    aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    /* main */
+
+    main .books {
+        width: 94%;
+        margin: 0 auto;
+    }
+
+    main .books h2 {
+        margin-top: 2rem;
+    }
+
+    main table thead .rating, .author {
+        display: none;
+    }
+
+    main table tbody .rating, .author {
+        display: none;
+    }
+}

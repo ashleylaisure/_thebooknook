@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- JAVASCRIPT -->
+    <script defer src="/js/app.js"></script>
+
+    <title><%=book.title %></title>
+</head>
+<body>
+    <%- include('../partials/_topnavbar.ejs') %>
+
+    <div class="containter">
+
+        <%- include('../partials/_asidenavbar.ejs') %>
+
+        <!-- ------------------- SHOW VIEW --------------------- -->
+        <main>
+            <div class="show">
+
+                <div class="book-photo">
+                    <%if (book.photo) { %>
+                        <img src=<%= book.photo %> alt="inserted book cover">
+                    <% } else { %>
+                        <img src="/assets/24011467_6855439.jpg" alt="book illustration" >
+                    <% } %>
+                </div>
+
+
+                <div class="books">
+
+                    <div class="row1">
+                        <h2><%=book.title %></h2>
+    
+                        <% if (book.series) { %>
+                            <p><%=book.series %>, #<%=book.numSeries %></p>
+                        <% } %>
+                        
+                        <h3>BY: <%=book.author %></h3>
+                        <h3>Status: <%=book.status.toUpperCase() %> </h3>
+        
+                        <% if (book.rating === '1') { %>
+                            <h3>Rating: ⭐</h3>
+                        <% } else if (book.rating === '2') { %>
+                            <h3>Rating: ⭐⭐</h3> 
+                        <% } else if (book.rating === '3') { %>
+                            <h3>Rating: ⭐⭐⭐</h3> 
+                        <% } else if (book.rating === '4') { %>
+                            <h3>Rating: ⭐⭐⭐⭐</h3> 
+                        <% } else if (book.rating === '5') { %>
+                            <h3>Rating: ⭐⭐⭐⭐⭐</h3> 
+                        <% } else { %>
+                            <h3></h3>
+                        <% } %>
+        
+                        <% if (book.spiceRating === '1') { %>
+                            <h3>Spice Rating: <span class="red">🌶</span></h3>
+                        <% } else if (book.spiceRating === '2') { %>
+                            <h3>Spice Rating: <span class="red">🌶🌶</span></h3> 
+                        <% } else if (book.spiceRating === '3') { %>
+                            <h3>Spice Rating: <span class="red">🌶🌶🌶</span></h3> 
+                        <% } else if (book.spiceRating === '4') { %>
+                            <h3>Spice Rating: <span class="red">🌶🌶🌶🌶</span></h3> 
+                        <% } else if (book.spiceRating === '5') { %>
+                            <h3>Spice Rating: <span class="red">🌶🌶🌶🌶🌶</span></h3> 
+                        <% } else { %>
+                            <h3></h3>
+                        <% } %>
+                    </div>
+
+                    <div class="row2">
+                        <% if (book.started) { %>
+                            <p>Started Reading: <%=book.started.toDateString() %></p>
+                        <% } %>
+        
+                        <% if (book.finished) { %>
+                            <p>Finished Reading: <%=book.finished.toDateString() %></p>
+                        <% } %>
+
+                        <% if (book.started) { %>
+                            <!-- convert from milliseconds to days -->
+                            <p>Read in: <%= (book.finished - book.started) /(1000 * 60 * 60 * 24) %> Days</p>
+                        <% } %>
+        
+                        <p>Format: <%=book.format %> </p>
+        
+                        <p>Genre: <%=book.genre %> </p>
+
+                    </div>
+                
+                    <div class="row3">
+                        <% if (book.review) { %>
+                            <h4>Book Review: </h4><p><%=book.review %></p> 
+                        <% }  else { %>
+                            <h4>No Review Written</h4>
+                        <% } %>
+
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="/users/<%= user._id %>/books/<%= book._id %>/edit" > 
+                            <button>Edit Book</button>
+                        </a>
+                        
+                        <form action="/users/<%= user._id %>/books/<%= book._id %>?_method=DELETE" method="POST">
+                            <button type="submit">Delete this book</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+                
+
+                
+    
+                
+
+            
+            
+
+
+            
+        </main>
+        
+    </div>
+    
+
+</body>
+</html>
