@@ -119,7 +119,7 @@ b {
 body {
     min-width: 100hv;
     height: 100vh;
-    font-family: 'Poppins', serif;
+    font-family: 'Raleway', serif;
     font-size: 0.88rem;
     background: var(--color-background);
     user-select: none;
