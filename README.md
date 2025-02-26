@@ -97,10 +97,6 @@ I Styled the homepage using the following YouTube tutorials as references.
 I was able to make a Sing-In/Sing-up error message using connect-Flash package.
 * https://shivlab.com/blog/set-up-flash-messages-nodejs-connect-flash/
 
-I Styled the main Index view using the following YouTube tutorials as references.
-
-* https://www.youtube.com/watch?v=BOF79TAIkYQ
-
 Emoji's used were copied and pasted from the Unicode site.
 
 * https://unicode.org/emoji/charts/full-emoji-list.html
